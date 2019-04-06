@@ -20,3 +20,4 @@ module mux3 (
                  sel3 ? inp3 :
                  out;
 endmodule
+/*asgharfor tetsinbg */

@@ -1,0 +1,50 @@
+E:/Work/Ghazal/University/Memari/CA2/aluCU.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/aluCU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module aluCU
+
+Top level modules:
+	aluCU
+
+} {} {}} E:/Work/Ghazal/University/Memari/CA2/ALU.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/ALU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} E:/Work/Ghazal/University/Memari/CA2/subSum.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/subSum.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module subSum
+
+Top level modules:
+	subSum
+
+} {} {}} E:/Work/Ghazal/University/Memari/CA2/instructionMemory.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/instructionMemory.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module InstMemory
+
+Top level modules:
+	InstMemory
+
+} {} {}} E:/Work/Ghazal/University/Memari/CA2/CU.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/CU.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module CU
+
+Top level modules:
+	CU
+
+} {} {}} E:/Work/Ghazal/University/Memari/CA2/mux2.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/mux2.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} E:/Work/Ghazal/University/Memari/CA2/register.v {1 {vlog -work work E:/Work/Ghazal/University/Memari/CA2/register.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module register
+
+Top level modules:
+	register
+
+} {} {}}
