@@ -1,14 +1,15 @@
 `timescale 1ps/1ps
 module Concatenator (
     inp,
+    concatPart,
     out
     );
     parameter NINP = 8;
-    parameter NZERO;
+    parameter NCONCATPART;
     input [NINP-1:0]inp;
+    input [NCONCATPART-1:0]
     output [NZERO+NINP-1:0]out;
-//WROOOOOOOOOONG
-    assign out = (NZERO){1'b0}, inp
+    assign out = {concatPart, inp}
 endmodule
 
 
