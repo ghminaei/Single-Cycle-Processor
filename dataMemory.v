@@ -25,11 +25,11 @@ module DataMemory (
         end
     end
 
-    always(@posedge clk) begin 
-        if (memRead == 1'b1)
-            readData <= memory[address]
-        if (memWrite == 1'b1)
-            memory[address] <= writeData
+    always @(posedge clk) begin
+        if (memRead)
+            readData <= memory[address];
+        if (memWrite)
+            memory[address] <= writeData;
     end
                       
 endmodule
