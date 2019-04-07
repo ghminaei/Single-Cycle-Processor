@@ -25,6 +25,17 @@ module DataMemory (
         end
     end
 
+    reg [WORD-1:0]allData[2*LENGTH-1:0];
+
+    initial begin 
+        $readmemb("datas.txt", allData);
+        for (i = 0; i < 2*LENGTH; i = i + 1) begin
+            memory[allData[i][9:0]] = allData[i+1];
+            i=i+1;
+        end
+    end
+
+
     always @(posedge clk) begin
         if (memRead)
             readData <= memory[address];

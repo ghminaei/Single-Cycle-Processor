@@ -7,5 +7,8 @@ module InstMemory (
     input [PCL-1:0]address;
     output [WORD-1:0]out;
     reg [WORD-1:0]memory[LENGTH-1:0];
+    initial begin 
+        $readmemb("instructions.txt", rom);
+    end
     assign out = memory[address];
 endmodule
