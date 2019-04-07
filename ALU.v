@@ -3,7 +3,8 @@ module ALU (
     inp1,
     inp2,
     func,
-    out
+    out,
+    zero
     );
     parameter n = 16;
     input [n-1:0]inp1, inp2;
@@ -21,5 +22,7 @@ module ALU (
                  (func == NOT) ? ~inp2 :
                  (func == NOP) ? out :
                  out;
+    assign zero = (out == (n){1'b0}) ? 1'b1 :
+                  1'b0;
                  
 endmodule
