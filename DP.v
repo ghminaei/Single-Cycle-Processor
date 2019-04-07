@@ -5,7 +5,7 @@ module DP (
     rstPC,
     ldPC,
     pcSel,
-    brachSel,
+    branchSel,
     jumpSel,
     regSel,
     inSel,
@@ -19,6 +19,9 @@ module DP (
 
     wndCtrl,
     funcCtrl,
+
+    instOut,
+    funcOut
     );
 
     input [1:0] wndCtrl;
@@ -28,7 +31,7 @@ module DP (
     rstPC,
     ldPC,
     pcSel,
-    brachSel,
+    branchSel,
     jumpSel,
     regSel,
     inSel,
@@ -40,6 +43,25 @@ module DP (
     memWrite,
     memRead;
 
+    output [3:0] instOut;
+    output [7:0] funcOut;
+
+    
+    wire [15:0] ins;
+    wire [15:0] regReadData1, 
+                regReadData2, 
+                ALUOP1, 
+                cnctOP, 
+                ALURes, 
+                DMReadData;
+    wire [9:0] addressIM, 
+               adderRes, 
+               cnctPC, 
+               PC;
+    wire [1:0] wndScr;
+    wire br, 
+         regCtrl, 
+         zero;
 
     register #(10) pcReg(
         .clk(clk),
@@ -82,13 +104,13 @@ module DP (
     Concatenator #(8, 2) cnct1(
         .inp(ins[7:0]),
         .concatPart(addressIM[9:8]),
-        .out(cntcPC)
+        .out(cnctPC)
     );
 
     Concatenator #(8, 8) cnct2(
         .inp(ins[7:0]),
         .concatPart(8'b0),
-        .out(cntcOP)
+        .out(cnctOP)
     );
 
     ALU alu(
@@ -103,7 +125,7 @@ module DP (
         .sel1(jumpSel),
         .sel2(br),
         .sel3(pcSel),
-        .inp1(cntcPC),
+        .inp1(cnctPC),
         .inp2(ins[9:0]),
         .inp3(adderRes),
         .out(PC)
