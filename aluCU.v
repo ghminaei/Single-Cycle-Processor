@@ -1,15 +1,10 @@
 `timescale 1ps/1ps
 module aluCU (
     rst,
-
     func,
-
     window,
-
     aluFunc,
-
     ldWnd
-
     );
     input rst;
     input [7:0]func;
