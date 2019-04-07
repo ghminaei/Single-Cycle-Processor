@@ -53,7 +53,8 @@ module DP (
                 ALUOP1, 
                 cnctOP, 
                 ALURes, 
-                DMReadData;
+                DMReadData,
+                writeData;
     wire [9:0] addressIM, 
                adderRes, 
                cnctPC, 
@@ -138,8 +139,27 @@ module DP (
         .inp2(regReadData1),
         .out(ALUOP1)
     ); //MUST CHECK
+
+    mux2 #(16) mx3(
+        .sel1(selDm),
+        .sel2(selALU),
+        .inp1(DMReadData),
+        .inp2(ALURes),
+        .out(writeData)
+    ); //MUST CHECK
     
-    //REGISTERFILE
+    regFile rf( 
+        .readReg1(ins[11:10]), 
+        .readReg2(ins[9:8]),
+        .writeReg(ins[11:10]),
+        .window(wndSrc),
+	    .writeData(writeData),
+	    .writeEn(regCtrl),
+	    .rst(rst),
+	    .clk(clk),
+	    .readData1(regReadData1),
+	    .readData2(regReadData2)
+	);
 
 
     assign br = branchSel & zero;
