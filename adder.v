@@ -1,5 +1,5 @@
 `timescale 1ps/1ps
-module adder (
+module Adder (
     inp1,
     inp2,
     out
