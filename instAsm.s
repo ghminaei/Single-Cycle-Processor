@@ -1,0 +1,21 @@
+Wnd0
+load R2, 500
+add R1, R2
+load R2, 501
+add R1, R2
+load R2, 502
+add R1, R2
+load R2, 503
+add R1, R2
+load R2, 504
+add R1, R2
+load R2, 505
+add R1, R2
+load R2, 506
+add R1, R2
+load R2, 507
+add R1, R2
+load R2, 508
+add R1, R2
+load R2, 509
+add R1, R2
