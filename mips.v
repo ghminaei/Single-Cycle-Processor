@@ -69,12 +69,14 @@ module mips (
         .selFunc(selFunc),
         .ldPC(selControl),
         .regSel(regSel),
-        .imSel(imSel)
+        .imSel(inSel),
+        .selALU(selALU)
     );
 
     aluCU alucu(
         .rst(rst),
         .func(funcIn),
+        .nop(nop),
         .window(wndCtrl),
         .aluFunc(funcCtrl),
         .ldWnd(ldWnd)

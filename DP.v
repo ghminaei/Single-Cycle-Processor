@@ -59,15 +59,15 @@ module DP (
                adderRes, 
                cnctPC, 
                PC;
-    wire [1:0] wndScr;
+    wire [1:0] wndSrc;
     wire br, 
          regCtrl, 
          zero;
 
     register #(10) pcReg(
         .clk(clk),
-        .rst(rstPC), //IS THIS OK?
-        .ld(ldPC),
+        .rst(rst), //IS THIS OK?
+        .ld(1'b1),
         .clr(),
         .inp(PC),
         .out(addressIM)
@@ -79,7 +79,7 @@ module DP (
         .ld(ldWnd),
         .clr(),
         .inp(wndCtrl),
-        .out(wndScr)
+        .out(wndSrc)
     );
 
     DataMemory dm(
@@ -164,4 +164,6 @@ module DP (
 
     assign br = branchSel & zero;
     assign regCtrl = regWrite & nop;
+    assign instOut = ins[15:12];
+    assign funcOut = ins[7:0];
 endmodule

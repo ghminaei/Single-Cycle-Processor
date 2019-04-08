@@ -2,6 +2,7 @@
 module aluCU (
     rst,
     func,
+    nop,
     window,
     aluFunc,
     ldWnd
@@ -10,7 +11,7 @@ module aluCU (
     input [7:0]func;
     output reg [3:0]aluFunc;
     output [1:0]window;
-    output reg ldWnd;
+    output reg ldWnd, nop;
     
     parameter  MOVEF = 8'b00000001, ADDF = 8'b00000010,
                SUBF  = 8'b00000100, ANDF = 8'b00001000,
@@ -25,7 +26,7 @@ module aluCU (
 
     assign window = func[1:0];
 
-    always @(func, posedge rst) begin
+    always @(*) begin
         if (rst) begin
            aluFunc = NOP;
            ldWnd = 1'b0;
@@ -34,13 +35,27 @@ module aluCU (
             aluFunc = NOP;
             ldWnd = 1'b0;
             case(func)
-            MOVEF : aluFunc = MOVE;
-            ADDF : aluFunc = ADD;
-            SUBF : aluFunc = SUB;
-            ANDF : aluFunc = AND;
-            ORF : aluFunc = OR;
-            NOTF : aluFunc = NOT;
-            NOPF : aluFunc = NOP;
+            MOVEF : begin aluFunc = MOVE;
+                          nop = 1;
+                    end
+            ADDF : begin aluFunc = ADD;
+                          nop = 1;
+                    end
+            SUBF : begin aluFunc = SUB;
+                          nop = 1;
+                    end
+            ANDF : begin aluFunc = AND;
+                          nop = 1;
+                    end
+            ORF : begin aluFunc = OR;
+                          nop = 1;
+                    end
+            NOTF : begin aluFunc = NOT;
+                          nop = 1;
+                    end
+            NOPF : begin aluFunc = NOP;
+                          nop = 1;
+                    end
             WND0 : ldWnd = 1;
             WND1 : ldWnd = 1;
             WND2 : ldWnd = 1;
