@@ -11,7 +11,7 @@ module TestBench ();
     initial begin 
         #(CLK) rst = 1;
         #(CLK) rst = 0;
-        #(22*CLK)
+        #(44*CLK)
         $stop;
     end
 

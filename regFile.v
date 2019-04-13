@@ -33,7 +33,7 @@
 			2'b00: begin 
 				reg1 = {1'b0,readReg1};
 				reg2 = {1'b0,readReg2};
-				regW = {1'b0,readReg2};
+				regW = {1'b0,writeReg}; //changed
 			   end
 			2'b01: begin 
 				reg1 = {1'b0,readReg1} + 3'b010;

@@ -94,11 +94,11 @@ module CU (
                            ldPC = 1;
                            funcCtrl = SUB;
                      end
-            TYPEC: begin regWrite <= 1;
-                         pcSel <= 1;
+            TYPEC: begin regWrite = 1;
+                         pcSel = 1;
                          ldPC = 1;
-                         selFunc <= 1;
-                         regSel <= 1;
+                         selFunc = 1;
+                         regSel = 1;
                          selALU = 1;
                    end
             ADDI: begin regWrite = 1;

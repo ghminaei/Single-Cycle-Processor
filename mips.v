@@ -64,10 +64,10 @@ module mips (
         .branchSel(branchSel),
         .jumpSel(jumpSel),
         .pcSel(pcSel),
-        .selCtrl(selCtrl),
+        .selCtrl(selControl),//changed
         .memWrite(memWrite),
         .selFunc(selFunc),
-        .ldPC(selControl),
+        .ldPC(),//what is going on
         .regSel(regSel),
         .imSel(inSel),
         .selALU(selALU)

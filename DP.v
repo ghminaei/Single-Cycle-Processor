@@ -163,7 +163,7 @@ module DP (
 
 
     assign br = branchSel & zero;
-    assign regCtrl = regWrite & nop;
+    assign regCtrl = regWrite & 1'b1; // CHANGEDDDDDD
     assign instOut = ins[15:12];
     assign funcOut = ins[7:0];
 endmodule
