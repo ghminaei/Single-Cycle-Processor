@@ -21,7 +21,9 @@ module mips (
     memWrite,
     memRead,
     selControl,
-    selFunc;
+    selFunc,
+    selRj,
+    regJsel;
 
     wire [1:0] wndCtrl;
     wire [2:0] funcCtrl;
@@ -49,7 +51,9 @@ module mips (
         .wndCtrl(wndCtrl),
         .funcCtrl(funcCtrl),
         .instOut(instOut),
-        .funcOut(funcOut)
+        .funcOut(funcOut),
+        .selRj(selRj),
+        .regJsel(regJsel)
     );
 
     CU cu(
@@ -67,7 +71,9 @@ module mips (
         .selFunc(selFunc),
         .regSel(regSel),
         .imSel(inSel),
-        .selALU(selALU)
+        .selALU(selALU),
+        .selRj(selRj),
+        .regJsel(regJsel)
     );
 
     aluCU alucu(

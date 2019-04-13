@@ -15,6 +15,8 @@ module DP (
     ldWnd,
     memWrite,
     memRead,
+    selRj,
+    regJsel,
 
     wndCtrl,
     funcCtrl,
@@ -39,7 +41,9 @@ module DP (
     nop,
     ldWnd,
     memWrite,
-    memRead;
+    memRead,
+    selRj,
+    regJsel;
 
     output [3:0] instOut;
     output [7:0] funcOut;
@@ -49,6 +53,7 @@ module DP (
     wire [15:0] regReadData1, 
                 regReadData2, 
                 ALUOP1, 
+                ALUOP2, 
                 cnctOP, 
                 ALURes, 
                 DMReadData,
@@ -113,7 +118,7 @@ module DP (
 
     ALU alu(
         .inp1(ALUOP1),
-        .inp2(regReadData2),
+        .inp2(ALUOP2),
         .func(funcCtrl),
         .out(ALURes),
         .zero(zero)
@@ -123,16 +128,16 @@ module DP (
         .sel1(jumpSel),
         .sel2(br),
         .sel3(pcSel),
-        .inp1(cnctPC),
-        .inp2(ins[9:0]),
+        .inp1(ins[9:0]), ///////
+        .inp2(cnctPC),
         .inp3(adderRes),
         .out(PC)
     );
 
     mux2 #(16) mx2(
-        .sel1(inSel),
+        .sel1(regJsel),
         .sel2(regSel),
-        .inp1(cnctOP),
+        .inp1(regReadData2),
         .inp2(regReadData1),
         .out(ALUOP1)
     );
@@ -143,6 +148,14 @@ module DP (
         .inp1(DMReadData),
         .inp2(ALURes),
         .out(writeData)
+    );
+
+    mux2 #(16) mx4(
+        .sel1(inSel),
+        .sel2(selRj),
+        .inp1(cnctOP),
+        .inp2(regReadData2),
+        .out(ALUOP2)
     );
     
     regFile rf( 
