@@ -8,7 +8,6 @@ module mips (
           rst;
 
     wire rstPC,
-    ldPC,
     pcSel,
     branchSel,
     jumpSel,
@@ -35,7 +34,6 @@ module mips (
         .clk(clk),
         .rst(rst),
         .rstPC(rstPC),
-        .ldPC(ldPC),
         .pcSel(pcSel),
         .branchSel(branchSel),
         .jumpSel(jumpSel),
@@ -64,10 +62,9 @@ module mips (
         .branchSel(branchSel),
         .jumpSel(jumpSel),
         .pcSel(pcSel),
-        .selCtrl(selControl),//changed
+        .selCtrl(selControl),
         .memWrite(memWrite),
         .selFunc(selFunc),
-        .ldPC(),//what is going on
         .regSel(regSel),
         .imSel(inSel),
         .selALU(selALU)

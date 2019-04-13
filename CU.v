@@ -14,7 +14,6 @@ module CU (
     selCtrl,
     memWrite,
     selFunc,
-    ldPC,
     regSel,
     imSel,
     selALU
@@ -31,7 +30,6 @@ module CU (
     selCtrl,
     memWrite,
     selFunc,
-    ldPC,
     regSel,
     imSel,
     selALU;
@@ -55,7 +53,6 @@ module CU (
             selCtrl = 0;
             memWrite = 0;
             selFunc = 0;
-            ldPC = 0;
             regSel = 0;
             imSel = 0;
             selALU = 0;
@@ -71,7 +68,6 @@ module CU (
             selCtrl = 0;
             memWrite = 0;
             selFunc = 0;
-            ldPC = 0;
             regSel = 0;
             imSel = 0;
             selALU = 0;
@@ -80,23 +76,18 @@ module CU (
                         selDM = 1; 
                         regWrite = 1; 
                         pcSel = 1;
-                        ldPC = 1; 
                   end
             STORE: begin pcSel = 1;
                          memWrite = 1; 
-                         ldPC = 1; 
                   end
             JUMP: begin jumpSel = 1;
-                        ldPC = 1;
                   end
             BRANCHZ: begin branchSel = 1;
                            selCtrl = 1;
-                           ldPC = 1;
                            funcCtrl = SUB;
                      end
             TYPEC: begin regWrite = 1;
                          pcSel = 1;
-                         ldPC = 1;
                          selFunc = 1;
                          regSel = 1;
                          selALU = 1;
@@ -104,7 +95,6 @@ module CU (
             ADDI: begin regWrite = 1;
                         pcSel = 1;
                         selCtrl = 1;
-                        ldPC = 1;
                         imSel = 1;
                         funcCtrl = ADD;
                         selALU = 1;
@@ -112,7 +102,6 @@ module CU (
             SUBI: begin regWrite = 1;
                         pcSel = 1;
                         selCtrl = 1;
-                        ldPC = 1;
                         imSel = 1;
                         funcCtrl = SUB;
                         selALU = 1;
@@ -120,7 +109,6 @@ module CU (
             ANDI: begin regWrite = 1;
                         pcSel = 1;
                         selCtrl = 1;
-                        ldPC = 1;
                         imSel = 1;
                         funcCtrl = AND;
                         selALU = 1;
@@ -128,7 +116,6 @@ module CU (
             ORI: begin regWrite = 1;
                         pcSel = 1;
                         selCtrl = 1;
-                        ldPC = 1;
                         imSel = 1;
                         funcCtrl = OR;
                         selALU = 1;

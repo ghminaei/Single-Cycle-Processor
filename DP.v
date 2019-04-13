@@ -3,7 +3,6 @@ module DP (
     clk,
     rst,
     rstPC,
-    ldPC,
     pcSel,
     branchSel,
     jumpSel,
@@ -29,7 +28,6 @@ module DP (
     input clk,
     rst,
     rstPC,
-    ldPC,
     pcSel,
     branchSel,
     jumpSel,
@@ -66,7 +64,7 @@ module DP (
 
     register #(10) pcReg(
         .clk(clk),
-        .rst(rst), //IS THIS OK?
+        .rst(rst),
         .ld(1'b1),
         .clr(),
         .inp(PC),
@@ -75,7 +73,7 @@ module DP (
 
     register #(2) wndReg(
         .clk(clk),
-        .rst(rst), //IS THIS OK?
+        .rst(rst),
         .ld(ldWnd),
         .clr(),
         .inp(wndCtrl),
@@ -87,8 +85,7 @@ module DP (
         .writeData(regReadData1),
         .readData(DMReadData),
         .memWrite(memWrite),
-        .memRead(memRead),
-        .clk(clk)
+        .memRead(memRead)
     );
     
     InstMemory im(
@@ -130,7 +127,7 @@ module DP (
         .inp2(ins[9:0]),
         .inp3(adderRes),
         .out(PC)
-    ); //MUST CHECK
+    );
 
     mux2 #(16) mx2(
         .sel1(inSel),
@@ -138,7 +135,7 @@ module DP (
         .inp1(cnctOP),
         .inp2(regReadData1),
         .out(ALUOP1)
-    ); //MUST CHECK
+    );
 
     mux2 #(16) mx3(
         .sel1(selDm),
@@ -146,7 +143,7 @@ module DP (
         .inp1(DMReadData),
         .inp2(ALURes),
         .out(writeData)
-    ); //MUST CHECK
+    );
     
     regFile rf( 
         .readReg1(ins[11:10]), 

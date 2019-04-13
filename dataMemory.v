@@ -4,15 +4,13 @@ module DataMemory (
     writeData,
     readData,
     memWrite,
-    memRead,
-    clk //delete this from everywhere
+    memRead
     );
     parameter WORD = 16, LENGTH = 1024, ADDRESSL = 10;
     input [ADDRESSL-1:0]address;
     input [WORD-1:0]writeData;
     input memWrite,
-    memRead,
-    clk; //delete this from everywhere
+    memRead;
     output reg [WORD-1:0]readData;
     reg [WORD-1:0]memory[LENGTH-1:0];
 
@@ -29,17 +27,6 @@ module DataMemory (
             i=i+1;
         end
     end
-
-    
-
-    initial begin 
-        // $readmemb("datas.txt", allData);
-        // // for (i = 0; i < 2*LENGTH; i = i + 1) begin
-        // //     memory[allData[i][9:0]] = allData[i+1];
-        // //     i=i+1;
-        // // end
-    end
-
 
     always @(*) begin
         if (memRead)
