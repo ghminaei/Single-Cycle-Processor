@@ -33,7 +33,7 @@
 			2'b00: begin 
 				reg1 = {1'b0,readReg1};
 				reg2 = {1'b0,readReg2};
-				regW = {1'b0,writeReg}; //changed
+				regW = {1'b0,writeReg};
 			   end
 			2'b01: begin 
 				reg1 = {1'b0,readReg1} + 3'b010;
@@ -43,12 +43,12 @@
 			2'b10: begin 
 				reg1 = {1'b0,readReg1} + 3'b100;
 				reg2 = {1'b0,readReg2} + 3'b100;
-				regW = {1'b0,writeReg} + 3'b010;
+				regW = {1'b0,writeReg} + 3'b100;
 			   end
 			2'b11: begin 
 				reg1 = {1'b0,readReg1} + 3'b110;
 				reg2 = {1'b0,readReg2} + 3'b110;
-				regW = {1'b0,writeReg} + 3'b010;
+				regW = {1'b0,writeReg} + 3'b110;
 			   end
 			endcase
 			if(writeEn) registers[regW]= writeData;

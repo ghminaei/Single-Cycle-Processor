@@ -30,10 +30,12 @@ module aluCU (
         if (rst) begin
            aluFunc = NOP;
            ldWnd = 1'b0;
+           nop = 1;
         end
         else begin
             aluFunc = NOP;
             ldWnd = 1'b0;
+            nop = 1;
             case(func)
             MOVEF : begin aluFunc = MOVE;
                           nop = 1;
@@ -54,12 +56,20 @@ module aluCU (
                           nop = 1;
                     end
             NOPF : begin aluFunc = NOP;
-                          nop = 1;
+                         nop = 0;
                     end
-            WND0 : ldWnd = 1;
-            WND1 : ldWnd = 1;
-            WND2 : ldWnd = 1;
-            WND3 : ldWnd = 1;
+            WND0 : begin ldWnd = 1;
+                         nop = 0;
+                    end
+            WND1 : begin ldWnd = 1;
+                         nop = 0;
+                    end
+            WND2 : begin ldWnd = 1;
+                         nop = 0;
+                    end
+            WND3 : begin ldWnd = 1;
+                         nop = 0;
+                    end
             endcase
         end
     end
