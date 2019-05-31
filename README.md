@@ -7,6 +7,7 @@ specifications:
 - Register File contains 8 16-bit registers from R0 to R7
 - Memory : 1K*16bit
 - 4 kinds of commands:
+
 see [wiki](https://github.com/ghminaei/Single-Cycle-MIPS/wiki) for more detailes.
 
 ## Installation
